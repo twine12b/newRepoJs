@@ -75,11 +75,11 @@ describe("getMiddleCharacter", () => {
   });
 });
 
-// describe("reverseWord", () => {
-//   test("returns the provided word, reversed", () => {
-//     expect(reverseWord("foo")).toBe("oof");
-//   });
-//
+describe("reverseWord", () => {
+  test("returns the provided word, reversed", () => {
+    expect(reverseWord("foo")).toBe("oof");
+  });
+
 //   test("returns a longer sentence, reversed", () => {
 //     expect(reverseWord("why would you even want to do this?")).toBe(
 //       "?siht od ot tnaw neve uoy dluow yhw"
@@ -151,4 +151,4 @@ describe("getMiddleCharacter", () => {
 //   test("returns 'fizzbuzz' if the number is divisible by 3 and 5", () => {
 //     expect(simpleFizzBuzz(15)).toBe("fizzbuzz");
 //   });
-// });
+});
