@@ -29,11 +29,11 @@ describe("generateInitials", () => {
   });
 });
 
-// describe("addVAT", () => {
-//   test("adds a VAT of 20% to a price of 100", () => {
-//     expect(addVAT(100, 20)).toBe(120);
-//   });
-//
+describe("addVAT", () => {
+  test("adds a VAT of 20% to a price of 100", () => {
+    expect(addVAT(100, 20)).toBe(120);
+  });
+
 //   test("adds a VAT of 17.5% to a price of 40", () => {
 //     expect(addVAT(40, 17.5)).toBe(47);
 //   });
@@ -151,4 +151,4 @@ describe("generateInitials", () => {
 //   test("returns 'fizzbuzz' if the number is divisible by 3 and 5", () => {
 //     expect(simpleFizzBuzz(15)).toBe("fizzbuzz");
 //   });
-// });
+});
