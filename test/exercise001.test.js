@@ -42,34 +42,34 @@ describe("addVAT", () => {
     expect(addVAT(33.5, 17.5)).toBe(39.36);
   });
 
-//   test("adds a VAT of 0% to a price of 25", () => {
-//     expect(addVAT(25, 0)).toBe(25);
-//   });
-// });
-//
-// describe("getSalePrice", () => {
-//   test("reduces a price of 100 by 50%", () => {
-//     expect(getSalePrice(100, 50)).toBe(50);
-//   });
-//
-//   test("reduces a price of 100 by 33.3%", () => {
-//     expect(getSalePrice(100, 33.3)).toBe(66.7);
-//   });
-//
-//   test("reduces a price of 79.99 by 15%", () => {
-//     expect(getSalePrice(79.99, 15)).toBe(67.99);
-//   });
-//
-//   test("reduces a price of 50 by 0%", () => {
-//     expect(getSalePrice(50, 0)).toBe(50);
-//   });
-// });
-//
-// describe("getMiddleCharacter", () => {
-//   test("returns the middle character from a string of odd length", () => {
-//     expect(getMiddleCharacter("bears!!!!")).toBe("s");
-//   });
-//
+  test("adds a VAT of 0% to a price of 25", () => {
+    expect(addVAT(25, 0)).toBe(25);
+  });
+});
+
+describe("getSalePrice", () => {
+  test("reduces a price of 100 by 50%", () => {
+    expect(getSalePrice(100, 50)).toBe(50);
+  });
+
+  test("reduces a price of 100 by 33.3%", () => {
+    expect(getSalePrice(100, 33.3)).toBe(66.7);
+  });
+
+  test("reduces a price of 79.99 by 15%", () => {
+    expect(getSalePrice(79.99, 15)).toBe(67.99);
+  });
+
+  test("reduces a price of 50 by 0%", () => {
+    expect(getSalePrice(50, 0)).toBe(50);
+  });
+});
+
+describe("getMiddleCharacter", () => {
+  test("returns the middle character from a string of odd length", () => {
+    expect(getMiddleCharacter("bears!!!!")).toBe("s");
+  });
+
 //   test("returns the middle 2 characters from a string of even length", () => {
 //     expect(getMiddleCharacter("help!!")).toBe("lp");
 //   });
