@@ -70,11 +70,11 @@ describe("getMiddleCharacter", () => {
     expect(getMiddleCharacter("bears!!!!")).toBe("s");
   });
 
-//   test("returns the middle 2 characters from a string of even length", () => {
-//     expect(getMiddleCharacter("help!!")).toBe("lp");
-//   });
-// });
-//
+  test("returns the middle 2 characters from a string of even length", () => {
+    expect(getMiddleCharacter("help!!")).toBe("lp");
+  });
+});
+
 // describe("reverseWord", () => {
 //   test("returns the provided word, reversed", () => {
 //     expect(reverseWord("foo")).toBe("oof");
@@ -151,4 +151,4 @@ describe("getMiddleCharacter", () => {
 //   test("returns 'fizzbuzz' if the number is divisible by 3 and 5", () => {
 //     expect(simpleFizzBuzz(15)).toBe("fizzbuzz");
 //   });
-});
+// });

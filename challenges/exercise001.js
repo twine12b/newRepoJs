@@ -34,8 +34,7 @@ function getMiddleCharacter(str) {
   //
   if (strLen % 2 === 0) {
     // if str even
-    // return str[midddle -1] + str[midddle];
-    return str[midddle - 1];
+    return str[midddle - 1] + str[midddle];
   } else {
     //if str odd
     return str[midddle];
