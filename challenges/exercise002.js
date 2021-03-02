@@ -7,12 +7,12 @@ function isFromManchester(person) {
   if (person === undefined) throw new Error("person is required");
   // This is a perfect JS if statement - ** USE THIS FROM NOW ON **
   return person.city === "Manchester" ? true : false;
-  ;
 }
 
 function getBusNumbers(people) {
   if (people === undefined) throw new Error("people is required");
-  // Your code here!
+  // if num people less than bus capacity, bus = 1
+  return people < 40 ? 1 : ((people % 40) + 1);
 }
 
 function countSheep(arr) {
