@@ -76,7 +76,6 @@ function countLinuxUsers(users) {
     if (user.type.includes("Linux")) {
       count++;
     }
-
   });
   return count;
 }
@@ -90,7 +89,7 @@ function getMeanScore(scores) {
     meanScore += val;
   });
 
-  return meanScore / noOfVals;
+  return parseFloat((meanScore / noOfVals).toFixed(2));
 }
 
 function simpleFizzBuzz(n) {
