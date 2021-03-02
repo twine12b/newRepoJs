@@ -144,11 +144,11 @@ describe("simpleFizzBuzz", () => {
     expect(simpleFizzBuzz(5)).toBe("buzz");
   });
 
-//   test("returns the number if the number is divisible by neither 3 nor 5", () => {
-//     expect(simpleFizzBuzz(4)).toBe(4);
-//   });
-//
-//   test("returns 'fizzbuzz' if the number is divisible by 3 and 5", () => {
-//     expect(simpleFizzBuzz(15)).toBe("fizzbuzz");
-//   });
+  test("returns the number if the number is divisible by neither 3 nor 5", () => {
+    expect(simpleFizzBuzz(4)).toBe(4);
+  });
+
+  test("returns 'fizzbuzz' if the number is divisible by 3 and 5", () => {
+    expect(simpleFizzBuzz(15)).toBe("fizzbuzz");
+  });
 });
