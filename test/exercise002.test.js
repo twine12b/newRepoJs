@@ -71,77 +71,76 @@ test("returns 3 if 3 buses are required", () => {
 test("returns the correct number of buses for larger numbers of people", () => {
   expect(getBusNumbers(43728)).toBe(1094);
 });
-// });
 
-// describe("countSheep", () => {
-//   test("returns 0 if there are 0 sheep in the array", () => {
-//     const arr = ["dog", "badger", "dog", "dog", "chicken"];
-//     expect(countSheep(arr)).toBe(0);
-//   });
-//
-//   test("returns 1 if there is 1 sheep in the array", () => {
-//     const arr = ["dog", "sheep", "dog", "dog", "chicken"];
-//     expect(countSheep(arr)).toBe(1);
-//   });
-//
-//   test("returns 2 if there are 2 sheep in the array", () => {
-//     const arr = ["dog", "sheep", "dog", "sheep", "chicken"];
-//     expect(countSheep(arr)).toBe(2);
-//   });
-//
-//   test("returns 5 if there are 5 sheep in the array", () => {
-//     const arr = [
-//       "dog",
-//       "sheep",
-//       "dog",
-//       "sheep",
-//       "chicken",
-//       "sheep",
-//       "hare",
-//       "sheep",
-//       "sheep"
-//     ];
-//     expect(countSheep(arr)).toBe(5);
-//   });
-// });
-//
-// describe("hasMPostCode", () => {
-//   test("returns true if the person has a postcode starting with M", () => {
-//     const person = {
-//       name: "Mohammed",
-//       age: 23,
-//       address: {
-//         line1: "1a Pool Road",
-//         city: "Manchester",
-//         postCode: "M16 8DR"
-//       }
-//     };
-//     expect(hasMPostCode(person)).toBe(true);
-//   });
-//
-//   test("returns false if the person does not have a postcode starting with M", () => {
-//     const person = {
-//       name: "Anisa",
-//       age: 39,
-//       address: {
-//         line1: "44 Bridge Street",
-//         city: "Leeds",
-//         postCode: "LS11 6BT"
-//       }
-//     };
-//     expect(hasMPostCode(person)).toBe(false);
-//   });
-//
-//   test("returns false if the postcode starts with M but is not for Manchester", () => {
-//     const person = {
-//       name: "Jahin",
-//       age: 55,
-//       address: {
-//         line1: "11 Stone Street",
-//         city: "Maidstone",
-//         postCode: "ME20 5BR"
-//       }
-//     };
-//     expect(hasMPostCode(person)).toBe(false);
-//   });
-// });
+describe("countSheep", () => {
+  test("returns 0 if there are 0 sheep in the array", () => {
+    const arr = ["dog", "badger", "dog", "dog", "chicken"];
+    expect(countSheep(arr)).toBe(0);
+  });
+
+  test("returns 1 if there is 1 sheep in the array", () => {
+    const arr = ["dog", "sheep", "dog", "dog", "chicken"];
+    expect(countSheep(arr)).toBe(1);
+  });
+
+  test("returns 2 if there are 2 sheep in the array", () => {
+    const arr = ["dog", "sheep", "dog", "sheep", "chicken"];
+    expect(countSheep(arr)).toBe(2);
+  });
+
+  test("returns 5 if there are 5 sheep in the array", () => {
+    const arr = [
+      "dog",
+      "sheep",
+      "dog",
+      "sheep",
+      "chicken",
+      "sheep",
+      "hare",
+      "sheep",
+      "sheep"
+    ];
+    expect(countSheep(arr)).toBe(5);
+  });
+});
+
+describe("hasMPostCode", () => {
+  test("returns true if the person has a postcode starting with M", () => {
+    const person = {
+      name: "Mohammed",
+      age: 23,
+      address: {
+        line1: "1a Pool Road",
+        city: "Manchester",
+        postCode: "M16 8DR"
+      }
+    };
+    expect(hasMPostCode(person)).toBe(true);
+  });
+
+  test("returns false if the person does not have a postcode starting with M", () => {
+    const person = {
+      name: "Anisa",
+      age: 39,
+      address: {
+        line1: "44 Bridge Street",
+        city: "Leeds",
+        postCode: "LS11 6BT"
+      }
+    };
+    expect(hasMPostCode(person)).toBe(false);
+  });
+
+  test("returns false if the postcode starts with M but is not for Manchester", () => {
+    const person = {
+      name: "Jahin",
+      age: 55,
+      address: {
+        line1: "11 Stone Street",
+        city: "Maidstone",
+        postCode: "ME20 5BR"
+      }
+    };
+    expect(hasMPostCode(person)).toBe(false);
+  });
+});
