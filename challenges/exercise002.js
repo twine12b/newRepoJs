@@ -6,8 +6,8 @@ function getFillings(sandwich) {
 function isFromManchester(person) {
   if (person === undefined) throw new Error("person is required");
   // This is a perfect JS if statement - ** USE THIS FROM NOW ON **
-  let city = person.city === "Manchester" ? true : false;
-  return city;
+  return person.city === "Manchester" ? true : false;
+  ;
 }
 
 function getBusNumbers(people) {
