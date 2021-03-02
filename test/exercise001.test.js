@@ -99,17 +99,17 @@ describe("reverseAllWords", () => {
   });
 });
 
-// describe("countLinuxUsers", () => {
-//   test("returns 0 if no Linux users found", () => {
-//     const users = [
-//       {name: "Heather", OS: "Windows 8", type: "Windows"},
-//       {name: "Paul", OS: "Firefox OS", type: "Unknown"},
-//       {name: "Sheila", OS: "Windows 10", type: "Windows"},
-//       {name: "Pedro", OS: "Windows 95", type: "Windows"}
-//     ];
-//     expect(countLinuxUsers(users)).toBe(0);
-//   });
-//
+describe("countLinuxUsers", () => {
+  test("returns 0 if no Linux users found", () => {
+    const users = [
+      {name: "Heather", OS: "Windows 8", type: "Windows"},
+      {name: "Paul", OS: "Firefox OS", type: "Unknown"},
+      {name: "Sheila", OS: "Windows 10", type: "Windows"},
+      {name: "Pedro", OS: "Windows 95", type: "Windows"}
+    ];
+    expect(countLinuxUsers(users)).toBe(0);
+  });
+
 //   test("returns the correct number of Linux users found", () => {
 //     const users = [
 //       {name: "Heather", OS: "Ubuntu 18.04", type: "Linux"},
@@ -151,4 +151,4 @@ describe("reverseAllWords", () => {
 //   test("returns 'fizzbuzz' if the number is divisible by 3 and 5", () => {
 //     expect(simpleFizzBuzz(15)).toBe("fizzbuzz");
 //   });
-// });
+});
