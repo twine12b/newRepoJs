@@ -14,6 +14,8 @@ const sumDigits = n => {
  * @param {Number} end
  * @param {Number} step
  */
+//  ** Resolves eslint error - [npm run eslint **]
+// eslint-disable-next-line no-unused-vars
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
