@@ -135,11 +135,11 @@ describe("getMeanScore", () => {
   });
 });
 
-// describe("simpleFizzBuzz", () => {
-//   test("returns 'fizz' if the number is divisible by 3", () => {
-//     expect(simpleFizzBuzz(3)).toBe("fizz");
-//   });
-//
+describe("simpleFizzBuzz", () => {
+  test("returns 'fizz' if the number is divisible by 3", () => {
+    expect(simpleFizzBuzz(3)).toBe("fizz");
+  });
+
 //   test("returns 'buzz' if the number is divisible by 5", () => {
 //     expect(simpleFizzBuzz(5)).toBe("buzz");
 //   });
@@ -151,4 +151,4 @@ describe("getMeanScore", () => {
 //   test("returns 'fizzbuzz' if the number is divisible by 3 and 5", () => {
 //     expect(simpleFizzBuzz(15)).toBe("fizzbuzz");
 //   });
-// });
+});
