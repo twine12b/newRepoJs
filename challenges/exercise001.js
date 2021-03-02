@@ -57,7 +57,7 @@ function reverseAllWords(words) {
     return revWords
   } else {
     // eslint-disable-next-line no-undef
-    for (i = 0; i < words.length - 1; i++) {
+    for (i = 0; i <= words.length - 1; i++) {
       // eslint-disable-next-line no-undef
       revWords.push(reverseWord(words[i]));
     }
