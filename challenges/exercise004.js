@@ -108,7 +108,24 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  // var tmpArr = Array();
+
+  // ** Standard Loop
+  // for(let i=0; i<nums.length; i++){
+  //   tmpArr.push(parseFloat(Math.sqrt(nums[i]).toFixed(2))); // fix formatting
+  // }
+
+  // ** For each Loop
+  // nums.forEach((num) => {
+  //   tmpArr.push(parseFloat(Math.sqrt(num).toFixed(2)));
+  // });
+
+  // Map transformation (Same length as 'nums')
+  const tmpArr = nums.map((num) => {
+    return parseFloat(Math.sqrt(num).toFixed(2));
+  });
+
+  return tmpArr;
 }
 
 function findSentencesContaining(sentences, str) {
