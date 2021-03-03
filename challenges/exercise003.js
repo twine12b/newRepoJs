@@ -1,6 +1,12 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  // var squareNum = new Array();
+  var squareNum = new Array();
+
+  nums.forEach((n) => {
+    squareNum.push(n * n);
+  });
+
+  return squareNum;
 
 }
 
