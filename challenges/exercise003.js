@@ -6,6 +6,14 @@ function getSquares(nums) {
     squareNum.push(n * n);
   });
 
+  // I really like the algorithm using MAP from.
+  //https://storage.googleapis.com/tech-returners-course/JavaScript_Challenges/JS_challenges_week3_squarenums_3ways.mp4
+  /**
+   * const squareNum = nums.map(function (num)) {
+   *     return num * num;
+   * }
+   */
+
   return squareNum;
 
 }

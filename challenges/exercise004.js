@@ -1,6 +1,24 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  var lessThanOneArr = Array();
+
+  // Standard for loop solution
+  // for(let i=0; i <= nums.length-1; i++) {
+  //   if(nums[i] < 1){
+  //     lessThanOneArr.push(nums[i]);
+  //   }
+  // }
+
+  // Advanced for loop solution
+  nums.forEach((num) => {
+    if (num < 1) {
+      lessThanOneArr.push(num);
+    }
+  });
+
+  // Can not use Map for this challenge
+
+  return lessThanOneArr;
 }
 
 function findNamesBeginningWith(names, char) {
