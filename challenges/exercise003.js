@@ -57,6 +57,7 @@ function checkIngredients(menu, ingredient) {
 
   menu.forEach((dish) => {
     // self assignment = [DO NOTHING]
+    // ingredients array needs to be sorted to satisfy test case
     // eslint-disable-next-line no-self-assign
     hasIngredient = dish.ingredients.includes(ingredient) ? true : hasIngredient = hasIngredient;
   });
@@ -67,7 +68,15 @@ function checkIngredients(menu, ingredient) {
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  // Your code here!
+  var tmpArr = Array();
+
+  // if num in arr1 and NOT in tmpArr
+  arr2.forEach((num) => {
+    arr1.includes(num) && !tmpArr.includes(num) ? tmpArr.push(num) : console.log("Do Nothing  " + num);
+  });
+
+  // Need to sort the output to satisfy test case
+  return tmpArr.sort();
 }
 
 module.exports = {
