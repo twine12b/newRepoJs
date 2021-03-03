@@ -39,14 +39,29 @@ function findNamesBeginningWith(names, char) {
   });
 
   //Map function wont work for this challenge
-
-
   return tmpArr;
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  // Your code here
+  var verbs = Array();
+
+  // ** Standard Loop
+  // for(let i=0; i<words.length; i++) {
+  //     if(words[i].split(" ").filter(word => word.includes(word))[0] === "to") {
+  //       verbs.push(words[i]);
+  //     }
+  // }
+
+  // ** For Each Loop
+  words.forEach((word) => {
+    word.split(" ").filter(word => word.includes(word))[0] === "to"
+        ? verbs.push(word) : "";
+  });
+
+  // ** Map Not suitable for this challenge
+  return verbs;
+
 }
 
 function getIntegers(nums) {
