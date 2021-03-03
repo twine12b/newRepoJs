@@ -24,7 +24,24 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  // Your code here
+  var tmpArr = Array();
+
+  // ** Standard for loop
+  // for(let i=0; i<names; i++) {
+  //   if(names[i].charAt(0) === char) {
+  //     tmpArr.push(names[i]);
+  //     }
+  //   }
+
+  // ** For Each loop
+  names.forEach((name) => {
+    name.charAt(0) === char ? tmpArr.push(name) : "";
+  });
+
+  //Map function wont work for this challenge
+
+
+  return tmpArr;
 }
 
 function findVerbs(words) {
