@@ -86,7 +86,24 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
+  // var tmpArr = Array();
+
+  // ** Standard Loop
+  // for(let i=0; i<users.length; i++) {
+  //   tmpArr.push(users[i].data.city.displayName);
+  // }
+
+  // ** For Each Loop
+  // users.forEach((user) => {
+  //   tmpArr.push(user.data.city.displayName);
+  // });
+
+  // Map transformation (Same length as 'Users')
+  const tmpArr = users.map((user) => {
+    return user.data.city.displayName;
+  });
+
+  return tmpArr;
 }
 
 function getSquareRoots(nums) {
