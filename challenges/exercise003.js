@@ -1,11 +1,20 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  // Your code here!
+  // var squareNum = new Array();
+
 }
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Your code here!
+  var camelStr = ""; // temp string
+
+  words.forEach((w) => {  // loop all words
+    camelStr +=
+        words.length > 1 ? w.charAt(0).toUpperCase() + w.slice(1) // Capitalises word
+            : w; // return word NOT capitalised
+  });
+
+  return camelStr.charAt(0).toLowerCase() + camelStr.slice(1);
 }
 
 function getTotalSubjects(people) {
