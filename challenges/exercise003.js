@@ -53,7 +53,15 @@ function getTotalSubjects(people) {
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  // Your code here!
+  var hasIngredient = false;
+
+  menu.forEach((dish) => {
+    // self assignment = [DO NOTHING]
+    // eslint-disable-next-line no-self-assign
+    hasIngredient = dish.ingredients.includes(ingredient) ? true : hasIngredient = hasIngredient;
+  });
+
+  return hasIngredient;
 }
 
 function duplicateNumbers(arr1, arr2) {
