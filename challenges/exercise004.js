@@ -66,7 +66,22 @@ function findVerbs(words) {
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  var tmpArr = Array();
+
+  // ** Standard Loop
+  // for(let i=0; i<nums.length; i++){
+  //   if(Number.isInteger(nums[i])) { //check if number is an integer
+  //     tmpArr.push(nums[i]);
+  //   }
+  // }
+
+  // For Each Loop
+  nums.forEach((num) => {
+    Number.isInteger(num) ? tmpArr.push(num) : "";
+  });
+
+  // ** Map method not suitable
+  return tmpArr;
 }
 
 function getCities(users) {
