@@ -12,7 +12,13 @@ function isFromManchester(person) {
 function getBusNumbers(people) {
   if (people === undefined) throw new Error("people is required");
   // if num people less than bus capacity, bus = 1
-  return people < 40 ? 1 : ((people % 40) + 1);
+  if (people < 40) {
+    return 1;
+  } else {
+    return people % 40 === 0
+        ? (people / 40) : parseInt((people / 40) + 1);
+  }
+
 }
 
 function countSheep(arr) {
@@ -26,7 +32,9 @@ function countSheep(arr) {
 
 function hasMPostCode(person) {
   if (person === undefined) throw new Error("person is required");
-  // Your code here!
+  return person.address.postCode.charAt(0) === 'M'
+  && person.address.city === "Manchester"
+      ? true : false;
 }
 
 module.exports = {
