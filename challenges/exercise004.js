@@ -131,7 +131,24 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
+  let tmpArr = Array();
+
+  // ** Standard Loop
+  // for(let i=0; i<sentences.length; i++) {
+  //   // includes function is case sensitive so set both strings to same case before comparing
+  //   if(sentences[i].toLowerCase().includes(str.toLowerCase())){
+  //     tmpArr.push(sentences[i])
+  //   }
+  // }
+
+  // ** For Each loop
+  sentences.forEach((sentence) => {
+    sentence.toLowerCase().includes(str.toLowerCase())
+        ? tmpArr.push(sentence) : "";
+  });
+
+  // Map not suitable for this function
+  return tmpArr;
 }
 
 function getLongestSides(triangles) {
