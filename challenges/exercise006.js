@@ -24,8 +24,7 @@ const sumMultiples = arr => {
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
   if (Object.prototype.toString.call(str) === '[object String]') {
-    // do nothing
-    console.log();
+    // do nothing - refactor this
   } else {
     return false;
   }
@@ -37,7 +36,6 @@ const isValidDNA = str => {
 
   // If Char NOT C|G|T|A return false
   charArray.forEach(i => {
-    // console.log(i);
     !i.match(dns) ? isValid = false : "";
   });
 
@@ -53,6 +51,26 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  // example borrowed from https://www.w3resource.com/javascript-exercises/javascript-string-exercise-1.php
+  if (Object.prototype.toString.call(str) !== '[object String]') throw new Error("not a  valid string");
+  if (!isValidDNA(str)) throw new Error("not a Valid DNA string");
+
+  var charArr = str.split('');  // convert str to character array
+  let compDNA = "";
+
+  // Nested if could be refactored as a switch
+  charArr.forEach((c) => {
+    if (c === "C")
+      compDNA += "G";
+    else if (c === "G")
+      compDNA += "C";
+    else if (c === "A")
+      compDNA += "T";
+    else if (c === "T")
+      compDNA += "A";
+  });
+
+  return compDNA;
 };
 
 /**

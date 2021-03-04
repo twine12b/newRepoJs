@@ -1,7 +1,7 @@
 const {
     sumMultiples,
     isValidDNA,
-    // getComplementaryDNA,
+    getComplementaryDNA,
     // isItPrime,
     // createMatrix,
     areWeCovered
@@ -66,12 +66,32 @@ describe("isValidDNA", () => {
     });
 });
 
-// describe("getComplementaryDNA", () => {
-//     test("some description"), () => {
-//         // ToDo
-//     }
-// });
-//
+describe("getComplementaryDNA", () => {
+    test("return complimentary DNA given valid input", () => {
+        expect(getComplementaryDNA("AGTC")).toBe("TCAG");
+        expect(getComplementaryDNA("TTACGTCGG")).toBe("AATGCAGCC");
+        expect(getComplementaryDNA("GCATTACAAGTCAGGA")).toBe("CGTAATGTTCAGTCCT");
+    });
+
+    expect(() => {
+        getComplementaryDNA(undefined);
+    }).toThrow("str is required");
+
+    expect(() => {
+        getComplementaryDNA(1234);
+    }).toThrow("not a  valid string");
+
+    expect(() => {
+        getComplementaryDNA([]);
+    }).toThrow("not a  valid string");
+
+    expect(() => {
+        getComplementaryDNA("ATCHHHCCCTA");
+    }).toThrow("not a Valid DNA string");
+
+
+});
+
 // describe("isItPrime", () => {
 //     test("some description"), () => {
 //         // ToDo
