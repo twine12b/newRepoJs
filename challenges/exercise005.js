@@ -33,7 +33,26 @@ const count1sand0s = str => {
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+
+  // return (
+  //     parseFloat(
+  //         n
+  //             .toString()
+  //             .split('')
+  //             .reverse()
+  //             .join('')
+  //     )
+  // )
+
+  /**
+   * create a string from the number
+   * split the string into an array of chars
+   * reverse the string order
+   * re-join the chars
+   * convert the reversed string into a float
+   * return results
+   */
+  return parseFloat(n.toString().split('').reverse().join(''));
 };
 
 const sumArrays = arrs => {
