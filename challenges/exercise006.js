@@ -23,6 +23,27 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  if (Object.prototype.toString.call(str) === '[object String]') {
+    // do nothing
+    console.log();
+  } else {
+    return false;
+  }
+
+  // Convert String to CharArray.
+  const charArray = str.split('');
+  var isValid = true;
+  var dns = /^[A-Aa-aC-Cc-cT-Tt-tG-G-g-g]+$/;  //Regexp for CGTA-cgta - multi "OR statement" not working
+
+  // If Char NOT C|G|T|A return false
+  charArray.forEach(i => {
+    // console.log(i);
+    !i.match(dns) ? isValid = false : "";
+  });
+
+  return isValid;
+
+
 };
 
 /**

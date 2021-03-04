@@ -1,6 +1,6 @@
 const {
     sumMultiples,
-    // isValidDNA,
+    isValidDNA,
     // getComplementaryDNA,
     // isItPrime,
     // createMatrix,
@@ -35,12 +35,37 @@ describe("sumMultiples", () => {
     });
 });
 
-// describe("isValidDNA", () => {
-//     test("some description"), () => {
-//         // ToDo
-//     }
-// });
-//
+describe("isValidDNA", () => {
+    test("return true for valid DNA strings", () => {
+        expect(isValidDNA("CGTA")).toBe(true);
+        expect(isValidDNA("CGHTA")).toBe(false);
+        expect(isValidDNA("CGTATTGAGTC")).toBe(true);
+        expect(isValidDNA("CGTA58TTGAGT2C")).toBe(false);
+    });
+
+    test("check valid characters with mixed case input", () => {
+        expect(isValidDNA("CGTA")).toBe(true);
+        expect(isValidDNA("cGTAtTGAgTC")).toBe(true);
+    });
+
+    test("return false when passing non strings", () => {
+        const testArr = [1, 2, 3];
+        const staff = [
+            {name: "gary", rota: ["Monday", "Tuesday"]},
+            {name: "paul", rota: ["Monday", "Tuesday", "Thursday"]}
+        ]
+        expect(isValidDNA(testArr)).toBe(false);
+        expect(isValidDNA(staff)).toBe(false);
+        expect(isValidDNA(1234)).toBe(false);
+    });
+
+    test("Throw error when passing incomplete data", () => {
+        expect(() => {
+            isValidDNA(undefined);
+        }).toThrow("str is required");
+    });
+});
+
 // describe("getComplementaryDNA", () => {
 //     test("some description"), () => {
 //         // ToDo
