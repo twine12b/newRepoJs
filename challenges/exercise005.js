@@ -93,7 +93,30 @@ const findNeedle = (haystack, searchTerm) => {
 
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  var wordArr = str.split(' '); //split str into an array or words
+  const wordFrequency = {};  // empty object}
+
+  /** fix format of wordArr by
+   * - removing special characters
+   * - converting to lowerCase
+   *
+   * [Transformation]   *
+   */
+  wordArr = wordArr.map((word) => {
+    return word.replace(/[^a-zA-Z ]/g, "").toLowerCase();
+  });
+
+  /**
+   * - Add word to list with value of [1] if it does not already exist
+   * - if it exists add 1 to words value
+   */
+  wordArr.forEach((word) => {
+    // console.log("word:  " +wordArr[word]);
+    wordFrequency[word] === undefined ? wordFrequency[word] = 1 : wordFrequency[word] += 1;
+
+  });
+
+  return wordFrequency;
 };
 
 module.exports = {
