@@ -2,7 +2,7 @@ const {
     sumMultiples,
     isValidDNA,
     getComplementaryDNA,
-    // isItPrime,
+    isItPrime,
     // createMatrix,
     areWeCovered
 } = require("../challenges/exercise006");
@@ -92,12 +92,34 @@ describe("getComplementaryDNA", () => {
 
 });
 
-// describe("isItPrime", () => {
-//     test("some description"), () => {
-//         // ToDo
-//     }
-// });
-//
+describe("isItPrime", () => {
+    test("return true/false when given an integer is a prime number", () => {
+        expect(isItPrime(6)).toBe(false);
+        expect(isItPrime(7)).toBe(true);
+        expect(isItPrime(8)).toBe(false);
+        expect(isItPrime(489)).toBe(false);
+        expect(isItPrime(3489)).toBe(false);
+        expect(isItPrime(7873)).toBe(true);
+        expect(isItPrime(7.0)).toBe(true);
+    });
+
+    expect(() => {
+        isItPrime(1);
+    }).toThrow("1 is neither prime nor composite number");
+
+    expect(() => {
+        isItPrime(0);
+    }).toThrow("zero and negative numbers are not true primes");
+
+    expect(() => {
+        isItPrime(-257);
+    }).toThrow("zero and negative numbers are not true primes");
+
+    expect(() => {
+        isItPrime(6.1);
+    }).toThrow("n is not an integer");
+});
+
 // describe("createMatrix", () => {
 //     test("some description"), () => {
 //         // ToDo

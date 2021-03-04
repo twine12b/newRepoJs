@@ -80,6 +80,26 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  if (n === 1) throw new Error("1 is neither prime nor composite number");
+  if (n <= 0) throw new Error("zero and negative numbers are not true primes");
+  if (!Number.isInteger(n)) throw Error("n is not an integer");
+  var isPrime = true;
+
+  if (n - Math.floor(n) > 0) {
+    n = parseInt("" + n);
+  }
+
+  /** looping through 2 to n-1
+   * url: https://www.programiz.com/javascript/examples/prime-number
+   * url: https://primes.utm.edu/notes/faq/negative_primes.html
+   */
+  for (let i = 2; i < n; i++) {
+    if (n % i == 0) {
+      isPrime = false;
+      break;
+    }
+  }
+  return isPrime;
 };
 
 /**
