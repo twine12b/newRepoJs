@@ -45,6 +45,7 @@ const reverseNumber = n => {
   // )
 
   /**
+   * ref: https://www.freecodecamp.org/news/js-basics-how-to-reverse-a-number-9aefc20afa8d/
    * create a string from the number
    * split the string into an array of chars
    * reverse the string order
@@ -57,7 +58,15 @@ const reverseNumber = n => {
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
+  var sum = 0;
+
+  arrs.forEach((subArr) => {
+    for (let i = 0; i < subArr.length; i++) {
+      sum += subArr[i];
+    }
+  });
+
+  return sum;
 };
 
 const arrShift = arr => {
