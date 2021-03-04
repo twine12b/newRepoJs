@@ -12,7 +12,23 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  const frequencies = {0: 0, 1: 0};  // create empty object - initialise key values to zero
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    /**
+     * Harriet Ryders - video example
+     *
+     if(frequencies[char] === undefined){
+          frequencies[char] = 1; // add value pairs to object
+        } else {
+          frequencies[char] += 1;
+        }
+     */
+
+    frequencies[char] === undefined ? frequencies[char] = 1 : frequencies[char] += 1;
+  }
+  return frequencies;
 };
 
 const reverseNumber = n => {
