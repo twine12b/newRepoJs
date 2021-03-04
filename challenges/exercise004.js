@@ -153,7 +153,23 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // Your code here
+  var tmpArr = Array();
+
+  // ** Standard Loop
+  for (let i = 0; i < triangles.length; i++) {
+    let longest = triangles[i][0];
+    for (let j = 1; j < 3; j++) {
+      if (triangles[i][j] > longest) {
+        longest = triangles[i][j];
+      }
+    }
+    tmpArr.push(longest);
+  }
+
+  // ** For Each Loop Not suitable [I've not found a working method for this]
+  // Map Not suitable
+
+  return tmpArr;
 }
 
 module.exports = {
