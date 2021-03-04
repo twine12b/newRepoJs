@@ -3,7 +3,7 @@ const {
     isValidDNA,
     getComplementaryDNA,
     isItPrime,
-    // createMatrix,
+    createMatrix,
     areWeCovered
 } = require("../challenges/exercise006");
 
@@ -120,12 +120,47 @@ describe("isItPrime", () => {
     }).toThrow("n is not an integer");
 });
 
-// describe("createMatrix", () => {
-//     test("some description"), () => {
-//         // ToDo
-//     }
-// });
-//
+describe("createMatrix", () => {
+    test("check the matrix has been created and filled as required", () => {
+        expect(createMatrix(1, "foo")).toEqual([["foo"]]);
+        expect(createMatrix(1, "1")).toEqual([["1"]]);
+        expect(createMatrix(1, 1)).toEqual([[1]]);
+        expect(createMatrix(3, "foo")).toEqual(
+            [
+                ["foo", "foo", "foo"],
+                ["foo", "foo", "foo"],
+                ["foo", "foo", "foo"]
+            ]);
+        expect(createMatrix(5, "foo")).toEqual(
+            [
+                ["foo", "foo", "foo", "foo", "foo"],
+                ["foo", "foo", "foo", "foo", "foo"],
+                ["foo", "foo", "foo", "foo", "foo"],
+                ["foo", "foo", "foo", "foo", "foo"],
+                ["foo", "foo", "foo", "foo", "foo"]
+            ]);
+    });
+
+    test("Throw error on invalid input", () => {
+        expect(() => {
+            createMatrix(undefined);
+        }).toThrow("n is required");
+
+        expect(() => {
+            createMatrix(2, undefined);
+        }).toThrow("fill is required");
+
+        expect(() => {
+            createMatrix(-2, undefined);
+        }).toThrow("the matrix has no size");
+
+        expect(() => {
+            createMatrix(0, 'x');
+        }).toThrow("the matrix has no size");
+    });
+
+});
+
 describe("areWeCovered", () => {
     test("return false if not staff at all", () => {
         expect(areWeCovered([], "Monday")).toBe(false);

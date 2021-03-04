@@ -114,8 +114,22 @@ const isItPrime = n => {
  * @returns {Array}
  */
 const createMatrix = (n, fill) => {
+  if (n <= 0) throw new Error("the matrix has no size"); // procedural throw statement
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+
+  /**
+   * https://stackoverflow.com/questions/8301400/how-do-you-easily-create-empty-matrices-javascript
+   */
+  var matrix = [];
+  for (var i = 0; i < n; i++) {
+    matrix[i] = [];
+    for (var j = 0; j < n; j++) {
+      matrix[i][j] = fill;
+    }
+  }
+
+  return matrix;
 };
 
 /**
