@@ -6,6 +6,14 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  if (!Array.isArray(arr)) throw new Error("an Array is required"); // if arr ia NOT Array
+  let total = 0;
+
+  arr.forEach(n => {
+    n % 3 === 0 || n % 5 === 0 ? total += n : "";
+  });
+
+  return total;
 };
 
 /**
@@ -66,6 +74,19 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  if (!Array.isArray(staff)) throw new Error("not a staff object"); // if arr ia NOT Array
+
+  if (staff.length === 0) {
+    return false;
+  }
+
+  let staffScheduledToWork = 0;
+
+  staff.forEach((member) => {
+    member.rota.includes(day) ? staffScheduledToWork += 1 : "";
+  });
+
+  return staffScheduledToWork >= 3 ? true : false;
 };
 
 module.exports = {
