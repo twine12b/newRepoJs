@@ -1,9 +1,9 @@
 const {
     sumDigits,
     createRange,
-    getScreentimeAlertList,
-    hexToRGB,
-    findWinner
+    // getScreentimeAlertList,
+    // hexToRGB,
+    // findWinner
 } = require("../challenges/exercise007");
 
 describe("sumDigits", () => {
@@ -22,6 +22,7 @@ describe("sumDigits", () => {
 
     test("throw errors given non numeric values", () => {
         expect(() => {
+            // eslint-disable-next-line no-undef
             sumDigits(p123);
         }).toThrow("p123 is not defined");
 
@@ -42,12 +43,28 @@ describe("sumDigits", () => {
 
 });
 
-// describe("createRange", () => {
-//     test("", () => {
-//         expect().toBe();
-//     });
-// });
-//
+describe("createRange", () => {
+    test("given start and end and step values return array of numbers with the correct step interval", () => {
+        expect(createRange(1, 3, 1)).toEqual([1, 2, 3]);
+        expect(createRange(5, 10, 1)).toEqual([5, 6, 7, 8, 9, 10]);
+        expect(createRange(1, 10, 1)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    });
+
+    test("given start and end with no step value return correct step interval", () => {
+        expect(createRange(1, 3)).toEqual([1, 2, 3]);
+        expect(createRange(5, 10)).toEqual([5, 6, 7, 8, 9, 10]);
+        expect(createRange(1, 10)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    });
+
+    test("throw errors for bad input parameters", () => {
+        expect(() => {
+            createRange();
+        }).toThrow("start is required");
+    });
+
+
+});
+
 // describe("getScreentimeAlertList", () => {
 //     test("", () => {
 //         expect().toBe();
