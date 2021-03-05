@@ -158,6 +158,134 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+
+  var winPos = getWinValues();
+
+  // loop through winning combos
+  winPos.forEach((combo) => {
+    if (checkWinner(board, combo) === "X") {
+      return "X";
+    } else if (checkWinner(board, combo) === "0") {
+      return 0;
+    }
+  });
+
+
+  return null;
+};
+
+/**
+ * Simply stores x, y positions in an array of arrays
+ * @param x
+ * @param y
+ * @param array
+ */
+function setWinPositions(x, y, array) {
+  array.push(x);
+  array.push(y);
+}
+
+function getWinValues() {
+  var winPos = [];
+
+  var winCol1 = [];
+  setWinPositions(0, 0, winCol1);
+  setWinPositions(0, 1, winCol1);
+  setWinPositions(0, 2, winCol1);
+
+  var winCol2 = [];
+  setWinPositions(1, 0, winCol2);
+  setWinPositions(1, 1, winCol2);
+  setWinPositions(1, 2, winCol2);
+
+  var winCol3 = [];
+  setWinPositions(2, 0, winCol3);
+  setWinPositions(2, 1, winCol3);
+  setWinPositions(2, 2, winCol3);
+
+  var winRow1 = [];
+  setWinPositions(0, 0, winRow1);
+  setWinPositions(0, 1, winRow1);
+  setWinPositions(0, 2, winRow1);
+
+  var winRow2 = [];
+  setWinPositions(1, 0, winRow2);
+  setWinPositions(1, 1, winRow2);
+  setWinPositions(1, 2, winRow2);
+
+  var winRow3 = [];
+  setWinPositions(2, 0, winRow3);
+  setWinPositions(2, 1, winRow3);
+  setWinPositions(2, 2, winRow3);
+
+  var winDiag1 = [];
+  setWinPositions(0, 0, winDiag1);
+  setWinPositions(1, 1, winDiag1);
+  setWinPositions(2, 2, winDiag1);
+
+  var winDiag2 = [];
+  setWinPositions(0, 2, winDiag2);
+  setWinPositions(1, 1, winDiag2);
+  setWinPositions(2, 0, winDiag2);
+
+  winCol1[0] == 3   // x value (even indexes)
+  winCol1[1] == 5   // y value (odd indexes)
+
+// to loop through coordinate values
+  for (var i = 0; i < winCol1.length; i += 2) {
+    var x = winCol1[i];
+    var y = winCol1[i + 1];
+  }
+
+// Add winning row combos
+  winPos.push(winRow1);
+  winPos.push(winRow2);
+  winPos.push(winRow3);
+
+//Add winning col combos
+  winPos.push(winCol1);
+  winPos.push(winCol2);
+  winPos.push(winCol3);
+
+//Add winning diag combos
+  winPos.push(winDiag1);
+  winPos.push(winDiag2);
+
+
+  // return completes list
+  return winPos;
+}
+
+/**
+ * Checks the winning combination to see if Player 'X' or Player '0' has won.
+ * if no player has won return non.
+ *
+ * @param board
+ * @param winPos
+ */
+const checkWinner = (board, winPos) => {
+  var player = "non";
+  var p1 = 0;  // counts combo streak
+  var p2 = 0;  // counts combo streak
+
+
+  for (let i = 0; i < winPos.length; i + 2) { // skips even indexes
+    if (board[i][i + 1] === "X") {
+      p1++;
+    } else if (board[i][i + 1] === "0") {
+      p2++;
+    }
+  }
+
+  if (p1 == 3) {
+    return "X";  // if 3 X's in a row
+  } else if (p2 === 3) {
+    return "0";  // if 3 0's in a row
+  }
+
+  return player;
+
+
 };
 
 module.exports = {
