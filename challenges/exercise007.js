@@ -4,6 +4,34 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  if (n != parseInt(n, 10)) throw new Error("number has illegal characters");
+
+  const strOfn = n.toString().split(''); // create a character array
+  var sum = 0;
+
+  for (let i = 0; i < strOfn.length; i++) {
+    if (strOfn[i] === '-') {
+      sum += parseFloat(strOfn[i + 1] * -1); //add the inverse of the next digit
+      i++;  // change index to the next digit
+    } else {
+      sum += parseFloat(strOfn[i]);
+    }
+  }
+
+  return sum;
+
+  /**
+   * How about this simple approach using modulo 9 arithmetic?
+   * -- fails on non linear numbers and numbers with more than 4 digits--
+   * return (n - 1) % 9 + 1;
+   */
+
+  // check if valid number
+
+  // convert numbers to string
+  // iterate and sum values
+  // return result
+
 };
 
 /**
