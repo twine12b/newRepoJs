@@ -110,7 +110,6 @@ const getScreentimeAlertList = (users, date) => {
 
         // Add user to array if usage exceeds 100
         if (totMins > 100) {
-          console.log("Add this " + user.username);
           arr.push(user.username);
         }
       }
@@ -133,7 +132,18 @@ const getScreentimeAlertList = (users, date) => {
  * @param {String} str
  */
 const hexToRGB = hexStr => {
-  if (hexStr === undefined) throw new Error("hexStr is required");
+  if (hexStr === undefined || hexStr === "") throw new Error("hexStr is required");
+  if (hexStr.length != 7) throw new Error("hexStr is not valid");
+  if (hexStr.substring(0, 1) !== "#") throw new Error("hexStr should start with the '#' character");
+  var rgb = "rgb(";  // specify the first part of the result string
+
+  if (hexStr.length === 7) { //long hex conversion string
+    rgb += parseInt(hexStr.substring(1, 3), 16) + ",";
+    rgb += parseInt(hexStr.substring(3, 5), 16) + ",";
+    rgb += parseInt(hexStr.substring(5, 7), 16) + ")";
+  }
+
+  return rgb;
 };
 
 /**

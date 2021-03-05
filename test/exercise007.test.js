@@ -2,7 +2,7 @@ const {
     sumDigits,
     createRange,
     getScreentimeAlertList,
-    // hexToRGB,
+    hexToRGB,
     // findWinner
 } = require("../challenges/exercise007");
 
@@ -121,12 +121,38 @@ describe("getScreentimeAlertList", () => {
     });
 });
 
-// describe("hexToRGB", () => {
-//     test("", () => {
-//         expect().toBe();
-//     });
-// });
-//
+describe("hexToRGB", () => {
+    test("return RGB value for valid long hexadecimal inputs", () => {
+        expect(hexToRGB("#FF1133")).toBe("rgb(255,17,51)");
+        expect(hexToRGB("#4a161d")).toBe("rgb(74,22,29)");
+        expect(hexToRGB("#FFFFFF")).toBe("rgb(255,255,255)");
+        expect(hexToRGB("#000000")).toBe("rgb(0,0,0)");
+    });
+
+    test("throw errors for bad input parameters", () => {
+        expect(() => {
+            hexToRGB();
+        }).toThrow("hexStr is required");
+
+        expect(() => {
+            hexToRGB("");
+        }).toThrow("hexStr is required");
+
+        expect(() => {
+            hexToRGB("#");
+        }).toThrow("hexStr is not valid");
+
+        expect(() => {
+            hexToRGB("#1234567890");
+        }).toThrow("hexStr is not valid");
+
+        expect(() => {
+            hexToRGB("pFFFFFF");
+        }).toThrow("hexStr should start with the '#' character");
+    });
+
+});
+
 // describe("findWinner", () => {
 //     test("", () => {
 //         expect().toBe();
