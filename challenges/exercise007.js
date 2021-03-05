@@ -93,8 +93,33 @@ const createRange = (start, end, step) => {
  * @param {Array} users
  */
 const getScreentimeAlertList = (users, date) => {
+  if (users === undefined && date === undefined) throw new Error("no data, users and date is required");
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  var arr = Array();
+  var totMins = 0;
+
+  users.forEach((user) => {
+    user.screenTime.forEach((u) => {  // loop entire list
+
+      if (u.date === date) { // check if dates match
+        // loop through arrays nested objects object
+        for (let key in u.usage) {
+          totMins += u.usage[key];
+        }
+
+        // Add user to array if usage exceeds 100
+        if (totMins > 100) {
+          console.log("Add this " + user.username);
+          arr.push(user.username);
+        }
+      }
+      // reset total minutes
+      totMins = 0;
+    });
+  });
+
+  return arr;
 };
 
 /**
