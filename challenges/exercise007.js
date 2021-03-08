@@ -159,19 +159,42 @@ const hexToRGB = hexStr => {
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
 
-  var winPos = getWinValues();
+  var winner = "";
+  // const winPos = [ [ 0, 0, 1, 0, 2, 0] ];
+  var winPos = getWinValues();// .slice();
+
+  // console.log(winPos);
 
   // loop through winning combos
-  winPos.forEach((combo) => {
-    if (checkWinner(board, combo) === "X") {
-      return "X";
-    } else if (checkWinner(board, combo) === "0") {
-      return 0;
-    }
-  });
+  // winPos.forEach((combo) => {
+  //   if (checkWinner(board, combo) === "X") {
+  //     console.log("checkWinner returned X");
+  //     winner = "X";
+  //     // combo.stop = true;
+  //   } else if (checkWinner(board, combo) === "0") {
+  //     winner ="0";
+  //   } else {
+  //     winner = null;
+  //   }
+  // });
 
+  outter_loop:
+      for (let i = 0; i < winPos.length; i++) {
+        if (checkWinner(board, winPos[i]) === "X") {
+          console.log("checkWinner returned X");
+          winner = "X";
+          break outter_loop;
+        } else if (checkWinner(board, winPos[i]) === "0") {
+          i = winPos + 1;  // break loop
+          winner = "0";
+          break outter_loop;
+        } else {
+          winner = null;
+          // break outter_loop; //**** DO NOT BREAK HERE
+        }
+      }
 
-  return null;
+  return winner;
 };
 
 /**
@@ -186,21 +209,21 @@ function setWinPositions(x, y, array) {
 }
 
 function getWinValues() {
-  var winPos = [];
+  const winPos = [];
 
-  var winCol1 = [];
+  const winCol1 = [];
   setWinPositions(0, 0, winCol1);
-  setWinPositions(0, 1, winCol1);
-  setWinPositions(0, 2, winCol1);
+  setWinPositions(1, 0, winCol1);
+  setWinPositions(2, 0, winCol1);
 
   var winCol2 = [];
-  setWinPositions(1, 0, winCol2);
+  setWinPositions(0, 1, winCol2);
   setWinPositions(1, 1, winCol2);
-  setWinPositions(1, 2, winCol2);
+  setWinPositions(2, 1, winCol2);
 
   var winCol3 = [];
-  setWinPositions(2, 0, winCol3);
-  setWinPositions(2, 1, winCol3);
+  setWinPositions(0, 2, winCol3);
+  setWinPositions(1, 2, winCol3);
   setWinPositions(2, 2, winCol3);
 
   var winRow1 = [];
@@ -247,7 +270,7 @@ function getWinValues() {
   winPos.push(winCol2);
   winPos.push(winCol3);
 
-//Add winning diag combos
+// //Add winning diag combos
   winPos.push(winDiag1);
   winPos.push(winDiag2);
 
@@ -263,30 +286,43 @@ function getWinValues() {
  * @param board
  * @param winPos
  */
-const checkWinner = (board, winPos) => {
+function checkWinner(board, winPos) {
   var player = "non";
   var p1 = 0;  // counts combo streak
   var p2 = 0;  // counts combo streak
+  var yVal = 1; // represents 'y''values
+  var x = 0;
+  var y = 0;
 
+  console.log(winPos);
 
-  for (let i = 0; i < winPos.length; i + 2) { // skips even indexes
-    if (board[i][i + 1] === "X") {
+  for (let i = 0; i < winPos.length; i += 2) { // skips even indexes
+    // console.log("val of i: " +i + "  val of yVal:  "+ yVal);
+    x = winPos[i];
+    y = winPos[yVal];
+
+    // console.log("["+x+"]["+y+"]");
+    // console.log("["+i+"]["+yVal+"]");
+    if (board[x][y] === "X") {
       p1++;
-    } else if (board[i][i + 1] === "0") {
+      // console.log("***************  " +p1);
+    } else if (board[x][y] === "0") {
       p2++;
     }
+
+    yVal += 2;
   }
 
-  if (p1 == 3) {
+  if (p1 === 3) {
+    console.log("returning X");
     return "X";  // if 3 X's in a row
   } else if (p2 === 3) {
+    console.log("returning 0");
     return "0";  // if 3 0's in a row
   }
 
   return player;
-
-
-};
+}
 
 module.exports = {
   sumDigits,

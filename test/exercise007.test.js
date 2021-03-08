@@ -160,6 +160,50 @@ describe("findWinner", () => {
             ["X", null, "0"],
             ["X", null, "0"]
         ];
+        const board2 = [
+            ["0", "X", null],
+            ["0", null, "X"],
+            ["0", null, "X"]
+        ];
+        const board3 = [
+            ["X", "0", null],
+            ["0", "0", "X"],
+            ["X", "0", null]
+        ];
+        const board4 = [
+            [null, "X", "0"],
+            ["X", "0", "0"],
+            [null, "X", "0"]
+        ];
+        const board5 = [
+            ["X", "X", "X"],
+            ["0", "0", null],
+            [null, "X", "0"]
+        ];
+        const board6 = [
+            ["X", "0", "0"],
+            ["0", "X", null],
+            [null, "X", "X"]
+        ];
+        const board7 = [
+            [null, null, null],
+            [null, null, null],
+            [null, null, null]
+        ];
+        // Column wins
         expect(findWinner(board)).toBe("X");
+        expect(findWinner(board2)).toBe("0");
+        expect(findWinner(board3)).toBe("0");
+        expect(findWinner(board4)).toBe("0");
+
+        // Row Wins
+        expect(findWinner(board5)).toBe("X");
+
+        // Diagonal wins
+        expect(findWinner(board6)).toBe("X");
+
+        // Empty Board
+        expect(findWinner(board7)).toBe(null);
+
     });
 });
