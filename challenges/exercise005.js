@@ -2,8 +2,9 @@ const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
 
+
   for (let i = 0; i < nums.length; i++) {
-    if (nums[i] === n && i + 1 < nums.length) { // return next elem if NOt end of list
+    if (nums[i] === n && i + 1 < nums.length) { // return next elem if Not end of list
       return nums[i + 1];
     }
   }
@@ -58,7 +59,7 @@ const reverseNumber = n => {
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
-  var sum = 0;
+  let sum = 0;
 
   arrs.forEach((subArr) => {
     for (let i = 0; i < subArr.length; i++) {
@@ -79,9 +80,10 @@ const arrShift = arr => {
 };
 
 const findNeedle = (haystack, searchTerm) => {
+
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  var isFound = false; // always false unless toggled true by the if condition
+  let isFound = false; // always false unless toggled true by the if condition
 
   for (let key in haystack) {
     // convert strings to same case to satisfy test scenario
@@ -93,7 +95,7 @@ const findNeedle = (haystack, searchTerm) => {
 
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
-  var wordArr = str.split(' '); //split str into an array or words
+  let wordArr = str.split(' '); //split str into an array or words
   const wordFrequency = {};  // empty object}
 
   /** fix format of wordArr by
