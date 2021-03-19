@@ -28,17 +28,18 @@ function getSalePrice(originalPrice, reduction) {
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  let strLen = str.length;
-  let midddle = Math.floor(strLen / 2);
+  // let strLen = str.length;
+  let midddle = Math.floor((str.length) / 2);
+  return str.length % 2 === 0 ? str[midddle - 1] + str[midddle] : str[midddle];
 
-  //
-  if (strLen % 2 === 0) {
-    // if str even
-    return str[midddle - 1] + str[midddle];
-  } else {
-    //if str odd
-    return str[midddle];
-  }
+  // //
+  // if (strLen % 2 === 0) {
+  //   // if str even
+  //   return str[midddle - 1] + str[midddle];
+  // } else {
+  //   //if str odd
+  //   return str[midddle];
+  // }
 }
 
 function reverseWord(word) {
@@ -49,45 +50,51 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  const revWords = new Array();
+  // const revWords = new Array();
+
+  return words.map((w) => reverseWord(w))//words.map((w) => { console.log(reverseWord(w)) });
 
   //  Probably a better way to do this using arrow function !..
-  if (words.length === 1) {
-    revWords.push(reverseWord(words[0]));
-    return revWords
-  } else {
-    // eslint-disable-next-line no-undef
-    for (i = 0; i <= words.length - 1; i++) {
-      // eslint-disable-next-line no-undef
-      revWords.push(reverseWord(words[i]));
-    }
-  }
-  return revWords;
+  // if (words.length === 1) {
+  //   revWords.push(reverseWord(words[0]));
+  //   return revWords
+  // } else {
+  //   for (let i = 0; i <= words.length - 1; i++) {
+  //     revWords.push(reverseWord(words[i]));
+  //   }
+  // }
+  // return revWords;
 
 }
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  var count = 0;
+  let count = 0;
+
+  users.map((u) => {
+    u.type.includes("Linux") ? count++ : null
+  });
 
   // Suggested by James - users[0].type
   // Simply access the property using its name
-  users.forEach((user) => {
-    if (user.type.includes("Linux")) {
-      count++;
-    }
-  });
+  // users.forEach((user) => {
+  //   if (user.type.includes("Linux")) {
+  //     count++;
+  //   }
+  // });
   return count;
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  var meanScore = 0;
-  var noOfVals = scores.length;
+  let meanScore = 0;
+  const noOfVals = scores.length;
 
-  scores.forEach((val) => {
-    meanScore += val;
-  });
+  scores.map(s => meanScore += s);
+
+  // scores.forEach((val) => {
+  //   meanScore += val;
+  // });
 
   return parseFloat((meanScore / noOfVals).toFixed(2));
 }
