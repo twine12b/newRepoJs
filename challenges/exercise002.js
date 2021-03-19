@@ -23,10 +23,14 @@ function getBusNumbers(people) {
 
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
-  var count = 0;
-  arr.forEach((animal) => {
-    animal === "sheep" ? count++ : count + 0;
+  let count = 0;
+  arr.map((animal) => {
+    animal === "sheep" ? count++ : count + 0
   });
+  
+  // arr.forEach((animal) => {
+  //   animal === "sheep" ? count++ : count + 0;
+  // });
   return count;
 }
 
