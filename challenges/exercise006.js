@@ -23,16 +23,15 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
-  if (Object.prototype.toString.call(str) === '[object String]') {
-    // do nothing - refactor this
-  } else {
+
+  if (Object.prototype.toString.call(str) !== '[object String]') {
     return false;
   }
 
   // Convert String to CharArray.
   const charArray = str.split('');
-  var isValid = true;
-  var dns = /^[A-Aa-aC-Cc-cT-Tt-tG-G-g-g]+$/;  //Regexp for CGTA-cgta - multi "OR statement" not working
+  let isValid = true;
+  const dns = /^[A-Aa-aC-Cc-cT-Tt-tG-G-g-g]+$/;  //Regexp for CGTA-cgta - multi "OR statement" not working
 
   // If Char NOT C|G|T|A return false
   charArray.forEach(i => {
@@ -40,34 +39,43 @@ const isValidDNA = str => {
   });
 
   return isValid;
-
-
 };
 
-/**
- * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
- * @param {String} str
- * @returns {String}
- */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
   // example borrowed from https://www.w3resource.com/javascript-exercises/javascript-string-exercise-1.php
   if (Object.prototype.toString.call(str) !== '[object String]') throw new Error("not a  valid string");
   if (!isValidDNA(str)) throw new Error("not a Valid DNA string");
 
-  var charArr = str.split('');  // convert str to character array
+  const charArr = str.split('');  // convert str to character array
   let compDNA = "";
 
   // Nested if could be refactored as a switch
   charArr.forEach((c) => {
-    if (c === "C")
-      compDNA += "G";
-    else if (c === "G")
-      compDNA += "C";
-    else if (c === "A")
-      compDNA += "T";
-    else if (c === "T")
-      compDNA += "A";
+    // if (c === "C")
+    //   compDNA += "G";
+    // else if (c === "G")
+    //   compDNA += "C";
+    // else if (c === "A")
+    //   compDNA += "T";
+    // else if (c === "T")
+    //   compDNA += "A";
+
+    // More lines of code, but faster execution of code.
+    switch (c) {
+      case "C":
+        compDNA += "G";
+        break;
+      case "G":
+        compDNA += "C";
+        break;
+      case "A":
+        compDNA += "T";
+        break;
+      case "T":
+        compDNA += "A";
+        break;
+    }
   });
 
   return compDNA;
@@ -83,11 +91,12 @@ const isItPrime = n => {
   if (n === 1) throw new Error("1 is neither prime nor composite number");
   if (n <= 0) throw new Error("zero and negative numbers are not true primes");
   if (!Number.isInteger(n)) throw Error("n is not an integer");
-  var isPrime = true;
+  let isPrime = true;
 
-  if (n - Math.floor(n) > 0) {
-    n = parseInt("" + n);
-  }
+  n - Math.floor(n) > 0 ? n = parseInt("" + n) : null;
+  // if (n - Math.floor(n) > 0) {
+  //   n = parseInt("" + n);
+  // }
 
   /** looping through 2 to n-1
    * url: https://www.programiz.com/javascript/examples/prime-number
@@ -121,10 +130,10 @@ const createMatrix = (n, fill) => {
   /**
    * https://stackoverflow.com/questions/8301400/how-do-you-easily-create-empty-matrices-javascript
    */
-  var matrix = [];
-  for (var i = 0; i < n; i++) {
+  let matrix = [];
+  for (let i = 0; i < n; i++) {
     matrix[i] = [];
-    for (var j = 0; j < n; j++) {
+    for (let j = 0; j < n; j++) {
       matrix[i][j] = fill;
     }
   }

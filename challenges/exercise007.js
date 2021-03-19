@@ -159,29 +159,14 @@ const hexToRGB = hexStr => {
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
 
-  var winner = "";
+  let winner = "";
   // const winPos = [ [ 0, 0, 1, 0, 2, 0] ];
-  var winPos = getWinValues();// .slice();
+  let winPos = getWinValues();// .slice();
 
-  // console.log(winPos);
-
-  // loop through winning combos
-  // winPos.forEach((combo) => {
-  //   if (checkWinner(board, combo) === "X") {
-  //     console.log("checkWinner returned X");
-  //     winner = "X";
-  //     // combo.stop = true;
-  //   } else if (checkWinner(board, combo) === "0") {
-  //     winner ="0";
-  //   } else {
-  //     winner = null;
-  //   }
-  // });
 
   outter_loop:
       for (let i = 0; i < winPos.length; i++) {
         if (checkWinner(board, winPos[i]) === "X") {
-          console.log("checkWinner returned X");
           winner = "X";
           break outter_loop;
         } else if (checkWinner(board, winPos[i]) === "0") {
@@ -251,15 +236,6 @@ function getWinValues() {
   setWinPositions(1, 1, winDiag2);
   setWinPositions(2, 0, winDiag2);
 
-  winCol1[0] == 3   // x value (even indexes)
-  winCol1[1] == 5   // y value (odd indexes)
-
-// to loop through coordinate values
-  for (var i = 0; i < winCol1.length; i += 2) {
-    var x = winCol1[i];
-    var y = winCol1[i + 1];
-  }
-
 // Add winning row combos
   winPos.push(winRow1);
   winPos.push(winRow2);
@@ -270,10 +246,9 @@ function getWinValues() {
   winPos.push(winCol2);
   winPos.push(winCol3);
 
-// //Add winning diag combos
+//Add winning diag combos
   winPos.push(winDiag1);
   winPos.push(winDiag2);
-
 
   // return completes list
   return winPos;
@@ -287,41 +262,25 @@ function getWinValues() {
  * @param winPos
  */
 function checkWinner(board, winPos) {
-  var player = "non";
-  var p1 = 0;  // counts combo streak
-  var p2 = 0;  // counts combo streak
-  var yVal = 1; // represents 'y''values
-  var x = 0;
-  var y = 0;
+  let p1 = 0;  // counts combo streak
+  let p2 = 0;  // counts combo streak
+  let yVal = 1; // represents 'y''values
+  let x = 0;
+  let y = 0;
 
-  console.log(winPos);
 
   for (let i = 0; i < winPos.length; i += 2) { // skips even indexes
-    // console.log("val of i: " +i + "  val of yVal:  "+ yVal);
     x = winPos[i];
     y = winPos[yVal];
 
-    // console.log("["+x+"]["+y+"]");
-    // console.log("["+i+"]["+yVal+"]");
-    if (board[x][y] === "X") {
-      p1++;
-      // console.log("***************  " +p1);
-    } else if (board[x][y] === "0") {
-      p2++;
-    }
-
+    // else contains nested if
+    board[x][y] === "X" ? p1++ :
+        board[x][y] === "0" ? p2++ : null;
     yVal += 2;
   }
 
-  if (p1 === 3) {
-    console.log("returning X");
-    return "X";  // if 3 X's in a row
-  } else if (p2 === 3) {
-    console.log("returning 0");
-    return "0";  // if 3 0's in a row
-  }
-
-  return player;
+  // else contains nested if
+  return p1 === 3 ? "X" : p2 === 3 ? "0" : null;
 }
 
 module.exports = {
